@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+#  nginx:
+#    build: .docker/nginx
+#    container_name: nginx
+#    ports:
+#      - "80:80"
+#      - "443:443"
+#    volumes:
+#      - .:/var/www/tools
+#    restart: always
+#    networks:
+#      - local
+#    links:
+#      - tools:tools
+#    extra_hosts:
+#      - aaa:127.0.0.1
+  wekan:
+    build: .docker/php-fpm
+    container_name: wekan
+    volumes:
+      - .:/var/www/
+#    ports:
+#      - 202:22
+    restart: always
+    environment:
+      TZ: Asia/Tokyo
+    networks:
+      local:
+        ipv4_address: 192.168.1.20
+
+# docker network create --driver="bridge" --subnet=192.168.1.0/24 local
+networks:
+  local:
+    external:
+      name: local

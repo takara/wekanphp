@@ -1,0 +1,8 @@
+.swp
+
+/vendor/
+/public/uploads/*
+*.db
+*.sqlite
+*.sqlite3
+*.csv
