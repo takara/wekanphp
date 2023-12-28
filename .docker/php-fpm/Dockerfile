@@ -50,4 +50,8 @@ RUN usermod -u 501 -s /bin/bash www-data
 COPY docker-php-ext-mongodb.ini /usr/local/etc/php/conf.d/
 COPY composer /usr/local/bin/
 WORKDIR /var/www/
+RUN apt-get install -y nginx
+COPY default /etc/nginx/sites-available/
+COPY docker-php-entrypoint /usr/local/bin/
+COPY nginx.conf /etc/nginx/
 #RUN rmdir /var/www/html

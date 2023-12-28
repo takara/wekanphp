@@ -20,7 +20,7 @@ services:
     build: .docker/php-fpm
     container_name: wekan
     volumes:
-      - .:/var/www/
+      - .:/var/www/html/
 #    ports:
 #      - 202:22
     restart: always
